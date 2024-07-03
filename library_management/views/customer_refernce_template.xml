@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="report_saleorder_document_customer_ref" inherit_id="sale.report_saleorder_document" priority="60">
+        <xpath expr="//div[@id='informations']" position="before">
+            <div t-if="doc.customer_reference" class="col-auto col-3 mw-100 mb-2" name="customer_reference">
+                <strong>Customer Reference:</strong>
+                <p class="m-0" t-field="doc.customer_reference"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

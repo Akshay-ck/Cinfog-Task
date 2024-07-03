@@ -1,0 +1,26 @@
+{
+    'name': 'Library Management',
+    'version': '16.0.1.0.0',
+    'category': 'Sale',
+    'summary': """ """,
+    'description': """Library management model/ Automated E-mail on sale confirmation """,
+    'author': 'Akshay ck',
+    'company': '',
+    'maintainer': '',
+    'website': '',
+    'depends': ['sale'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/mail_template_data.xml',
+        'data/ir_action_data.xml',
+        'data/send_mail_data.xml',
+        'views/book_views.xml',
+        'views/sale_order_inherit_views.xml',
+        'views/customer_refernce_template.xml',
+    ],
+
+    'license': 'AGPL-3',
+    'installable': True,
+    'auto_install': False,
+    'application': False,
+}

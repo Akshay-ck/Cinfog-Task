@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    <record id="end_mail" model="ir.cron" forcecreate="True">-->
+<!--        <field name="name">Send Mail On Sale Order Confirmation-->
+<!--        </field>-->
+<!--        <field name="model_id" ref="model_sale_order"/>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">model.send_mail_on_sale_confirmation()</field>-->
+<!--        <field name="user_id" ref="base.user_root"/>-->
+<!--        <field name="interval_number">5</field>-->
+<!--        <field name="interval_type">minutes</field>-->
+<!--        <field name="numbercall">-1</field>-->
+<!--        <field name="doall" eval="False"/>-->
+<!--    </record>-->
+
+    <record id="automated_sale_confirmation_mail" model="base.automation">
+        <field name="name">Base Automation: Sale Confirmation Mail</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">record.automated_action_send_mail()</field>
+        <field name="trigger">on_write</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('sale.field_sale_order__state')])]"/>
+        <field name="active" eval="True"/>
+        <field name="filter_domain">[('state', '=', 'sale')]</field>
+    </record>
+
+</odoo>
